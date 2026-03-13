@@ -1,5 +1,6 @@
 package com.example.meetingroom.service;
 
+import com.example.meetingroom.dto.CalendarEventDTO;
 import com.example.meetingroom.dto.CreateReservationRequest;
 import com.example.meetingroom.entity.Group;
 import com.example.meetingroom.entity.Reservation;
@@ -13,6 +14,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Service
@@ -49,6 +51,23 @@ public class ReservationService {
 
         reservation.setParticipants(participants);
 
+
+
         return reservationRepository.save(reservation);
+    }
+
+    public List<CalendarEventDTO> getUserCalendar(Long userId){
+
+        List<Reservation> reservations =
+                reservationRepository.findUserMeetings(userId);
+
+        return reservations.stream()
+                .map(r -> new CalendarEventDTO(
+                        r.getId(),
+                        r.getRoom().getName(),
+                        r.getStartTime(),
+                        r.getEndTime()
+                ))
+                .toList();
     }
 }

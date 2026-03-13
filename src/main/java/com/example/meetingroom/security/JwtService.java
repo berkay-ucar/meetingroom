@@ -24,7 +24,7 @@ public class JwtService {
         return Keys.hmacShaKeyFor(SECRET.getBytes());
     }
 
-    public String generateToken(String email, Map<String, Object> extraClaims) {
+    public String generateToken(Map<String, Object> extraClaims, String email) {
 
         return Jwts.builder()
                 .claims(extraClaims)

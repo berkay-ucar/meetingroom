@@ -1,40 +1,41 @@
-import FullCalendar from "@fullcalendar/react"
-import dayGridPlugin from "@fullcalendar/daygrid"
-import timeGridPlugin from "@fullcalendar/timegrid"
-import axios from "axios"
-import { useEffect, useState } from "react"
+import FullCalendar from "@fullcalendar/react";
+import dayGridPlugin from "@fullcalendar/daygrid";
+import timeGridPlugin from "@fullcalendar/timegrid";
+import interactionPlugin from "@fullcalendar/interaction";
+import { useEffect, useState } from "react";
+import api from "../api/api";
 
-function CalendarPage(){
+function CalendarPage() {
+    const [events, setEvents] = useState([]);
+    const [selectedEvent, setSelectedEvent] = useState(null);
 
-    const [events,setEvents] = useState([])
+    useEffect(() => {
+        api.get("/reservations/calendar/me").then(res => setEvents(res.data));
+    }, []);
 
-    useEffect(()=>{
+    const handleEventDrop = (info) => {
+        api.put(`/reservations/${info.event.id}`, {
+            start: info.event.start,
+            end: info.event.end
+        });
+        alert(`Meeting moved to ${info.event.start}`);
+    };
 
-        axios.get("http://localhost:8080/api/calendar")
-            .then(res=>{
+    const handleEventClick = (info) => {
+        setSelectedEvent(info.event);
+        alert(`Title: ${info.event.title}\nStart: ${info.event.start}\nEnd: ${info.event.end}`);
+    };
 
-                setEvents(res.data)
-
-            })
-
-    },[])
-
-    return(
-
-        <div style={{padding:"40px"}}>
-
-            <h2>Meeting Calendar</h2>
-
-            <FullCalendar
-                plugins={[dayGridPlugin,timeGridPlugin]}
-                initialView="timeGridWeek"
-                events={events}
-            />
-
-        </div>
-
-    )
-
+    return (
+        <FullCalendar
+            plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
+            initialView="timeGridWeek"
+            editable={true}
+            events={events}
+            eventDrop={handleEventDrop}
+            eventClick={handleEventClick}
+        />
+    );
 }
 
-export default CalendarPage
+export default CalendarPage;
