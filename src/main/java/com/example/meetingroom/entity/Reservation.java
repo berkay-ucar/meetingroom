@@ -30,6 +30,11 @@ public class Reservation {
             joinColumns = @JoinColumn(name = "reservation_id"),
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
+
+   /* @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "group_id", referencedColumnName = "id")
+    private Group group;
+*/
     private Set<User> participants = new HashSet<>();
 
     private LocalDateTime startTime;
