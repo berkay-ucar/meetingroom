@@ -1,6 +1,7 @@
 Meeting Room
 
 A simple meeting room reservation system that allows users to manage and book meeting rooms.
+
 This project demonstrates a full-stack application using a modern frontend and a RESTful backend.
 
 🚀 Features
@@ -16,6 +17,7 @@ This project demonstrates a full-stack application using a modern frontend and a
 ⚡ REST API based architecture
 
 🛠️ Technologies
+
 Backend
 
 Spring Boot 4
@@ -37,9 +39,12 @@ React
 JavaScript / HTML / CSS
 
 📂 Project Structure
+
 meetingroom/
 │
-├── backend/        # Spring Boot backend
+
+├── backend/                      # Spring Boot backend
+
 │   ├── controller
 
 │   ├── service
@@ -47,8 +52,11 @@ meetingroom/
 │   ├── model
 
 │   └── repository
+
 │
-├── frontend/       # Vite + React frontend
+
+├── frontend/                     # Vite + React frontend
+
 │   ├── src
 
 │   ├── components
@@ -56,12 +64,18 @@ meetingroom/
 │   ├── pages
 
 │   └── router
+
 │
+
 └── README.md
+
+
 ⚙️ Installation
+
 1. Clone the repository
 git clone https://github.com/berkay-ucar/meetingroom.git
-2. Backend Setup
+
+3. Backend Setup
 cd backend
 ./mvnw spring-boot:run
 
