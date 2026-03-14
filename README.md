@@ -90,10 +90,10 @@ UI improvements
 
 ## Screenshots
 
-<img src="images/day.png" width="800"/>
+<img src="/day.png" width="800"/>
 
-<img src="images/week.png" width="800"/>
+<img src="/week.png" width="800"/>
 
-<img src="images/month.png" width="800"/>
+<img src="/month.png" width="800"/>
 
 
