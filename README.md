@@ -20,7 +20,9 @@ Backend
 
 Spring Boot 4
 
-Java
+Java 17
+
+PostgreSQL
 
 REST API
 
