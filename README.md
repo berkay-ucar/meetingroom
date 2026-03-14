@@ -41,14 +41,20 @@ meetingroom/
 │
 ├── backend/        # Spring Boot backend
 │   ├── controller
+
 │   ├── service
+
 │   ├── model
+
 │   └── repository
 │
 ├── frontend/       # Vite + React frontend
 │   ├── src
+
 │   ├── components
+
 │   ├── pages
+
 │   └── router
 │
 └── README.md
@@ -62,6 +68,8 @@ cd backend
 Backend will start on:
 
 http://localhost:8080
+
+
 3. Frontend Setup
 cd frontend
 npm install
@@ -70,6 +78,7 @@ npm run dev
 Frontend will start on:
 
 http://localhost:5173
+
 📖 Usage
 
 Start the backend server.
@@ -92,10 +101,8 @@ UI improvements
 
 ## Screenshots
 
-<img src="/day.png" width="800"/>
+<img src="/month.png" width="800"/>
 
 <img src="/week.png" width="800"/>
 
-<img src="/month.png" width="800"/>
-
-
+<img src="/day.png" width="800"/>
