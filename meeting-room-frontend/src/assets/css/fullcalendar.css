@@ -1,0 +1,27 @@
+/* src/assets/css/fullcalendar.css */
+
+/* Core styles */
+.fc {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Header toolbar */
+.fc .fc-toolbar-title {
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+/* Day grid */
+.fc .fc-daygrid-day {
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+}
+
+/* Event style */
+.fc .fc-event {
+    background-color: #3788d8;
+    color: white;
+    border-radius: 3px;
+    padding: 2px 4px;
+    font-size: 0.85rem;
+}
